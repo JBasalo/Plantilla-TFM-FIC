@@ -1,0 +1,785 @@
+%%
+%% This is file `galician.ldf',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% galician.dtx  (with options: `code')
+%% This is a generated file.
+%% 
+%% Copyright 1989-2009 Johannes L. Braams and any individual authors
+%% listed elsewhere in this file.  All rights reserved.
+%% 
+%% This file was generated from file(s) of the Babel system.
+%% ---------------------------------------------------------
+%% 
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%% 
+%% This work has the LPPL maintenance status "maintained".
+%% 
+%% The Current Maintainer of this work is Johannes Braams.
+%% 
+%% This file may only be distributed together with a copy of the Babel
+%% system. You may however distribute the Babel system without
+%% such generated files.
+%% 
+%% The list of all files belonging to the Babel distribution is
+%% given in the file `manifest.bbl'. See also `legal.bbl for additional
+%% information.
+%% 
+%% The list of derived (unpacked) files belonging to the distribution
+%% and covered by LPPL is defined by the unpacking scripts (with
+%% extension .ins) which are part of the distribution.
+%% File `galician.dtx'
+%% Babel package for LaTeX version 2e
+%% Copyright (C) 1989 - 2008
+%%           by Johannes Braams, TeXniek
+%% Galician Language Definition File
+%% Copyright (C) 1997 - 2009
+%%        Javier Bezos (www.tex-tipografia.com)
+%%     and
+%%        CervanTeX (www.cervantex.es)
+%% Please report errors to: Javier Bezos (preferably)
+%%                          www.tex-tipografia.com
+%%                          J.L. Braams
+%%                          www.latex-project.org
+
+
+\ProvidesLanguage{galician.ldf}
+    [2009/01/02 v5.0h Galician support from the babel system]
+\LdfInit{galician}\captionsgalician
+
+\edef\gl@savedcatcodes{%
+ \catcode`\noexpand\~=\the\catcode`\~
+ \catcode`\noexpand\"=\the\catcode`\"}
+\catcode`\~=\active
+\catcode`\"=12
+
+\ifx\undefined\l@galician
+ \@nopatterns{Galician}
+ \adddialect\l@galician0
+\fi
+
+\def\gl@sdef#1{\babel@save#1\def#1}
+
+\@ifundefined{documentclass}
+ {\let\ifes@latex\iffalse}
+ {\let\ifes@latex\iftrue}
+\ifes@latex
+
+\@ifundefined{galicianoptions}{}
+{\PassOptionsToPackage{\galicianoptions}{babel}}
+
+\def\gl@genoption#1#2#3{%
+ \DeclareOption{#1}{}%
+ \@ifpackagewith{babel}{#1}%
+  {\def\gl@a{#1}%
+   \expandafter\let\expandafter\gl@b\csname opt@babel.sty\endcsname
+   \addto\gl@b{,#2}%
+   \expandafter\let\csname opt@babel.sty\endcsname\gl@b
+   \AtEndOfPackage{#3}}%
+  {}}
+
+\gl@genoption{es-minimal}
+ {es-ucroman,es-noindentfirst,es-nosectiondot,es-noenumerate,%
+  es-noitemize,es-noquoting,es-notilde,es-nodecimaldot}
+ {\galicianplainpercent
+  \let\gl@operators\relax}
+\gl@genoption{es-nolists}
+ {es-noenumerate,es-noitemize}{}
+\gl@genoption{es-sloppy}
+ {es-nolayout,es-noshorthands}{}
+\gl@genoption{es-noshorthands}
+ {es-noquoting,es-nodecimaldot,es-notilde}{}
+\gl@genoption{mexico}
+ {mexico-com,es-nodecimaldot}{}
+\gl@genoption{mexico-com}
+ {es-tabla,es-noquoting}
+ {\def\lquoti{``}\def\rquoti{''}%
+  \def\lquotii{`}\def\rquotii{'}%
+  \def\lquotiii{\guillemotleft{}}%
+  \def\rquotiii{\guillemotright{}}}
+
+\def\gl@ifoption#1#2#3{%
+ \DeclareOption{es-#1}{}%
+ \@ifpackagewith{babel}{es-#1}{#2}{#3}}%
+
+\def\gl@optlayout#1#2{\gl@ifoption{#1}{}{\addto\layoutgalician{#2}}}
+
+\else
+
+\def\gl@ifoption#1#2#3{\@namedef{galician#1}{#2}}
+
+\fi
+
+\let\gl@uclc\@secondoftwo
+\gl@ifoption{uppernames}{\let\gl@uclc\@firstoftwo}{}
+
+\def\gl@tablename{Ccadro}
+\gl@ifoption{taboa}{\def\gl@tablename{Tt\'{a}boa}}{}
+\gl@ifoption{cadro}{\def\gl@tablename{Ccadro}}{}
+\def\captionsgalician{%
+ \gl@a{preface}{Prefacio}%
+ \gl@a{ref}{Referencias}%
+ \gl@a{abstract}{Resumo}%
+ \gl@a{bib}{Bibliograf\'{\i}a}%
+ \gl@a{chapter}{Cap\'{\i}tulo}%
+ \gl@a{appendix}{Ap\'{e}ndice}%
+ \gl@a{listfigure}{\'{I}ndice de \gl@uclc Ffiguras}%
+ \gl@a{listtable}{\'{I}ndice de \expandafter\gl@uclc\gl@tablename s}%
+ \gl@a{index}{\'{I}ndice \gl@uclc Aalfab\'{e}tico}%
+ \gl@a{figure}{Figura}%
+ \gl@a{table}{\expandafter\@firstoftwo\gl@tablename}%
+ \gl@a{part}{Parte}%
+ \gl@a{encl}{Adxunto}%
+ \gl@a{cc}{Copia a}%
+ \gl@a{headto}{A}%
+ \gl@a{page}{p\'{a}xina}%
+ \gl@a{see}{v\'{e}xase}%
+ \gl@a{also}{v\'{e}xase tam\'{e}n}%
+ \gl@a{proof}{Demostraci\'{o}n}%
+ \gl@a{glossary}{Glosario}%
+ \@ifundefined{chapter}
+  {\gl@a{contents}{\'Indice}}%
+  {\gl@a{contents}{\'Indice \gl@uclc Xxeral}}}
+
+\def\gl@a#1{\@namedef{galician#1name}}
+\captionsgalician
+\def\gl@a#1#2{%
+ \def\expandafter\noexpand\csname#1name\endcsname
+ {\expandafter\noexpand\csname galician#1name\endcsname}}
+\edef\captionsgalician{\captionsgalician}
+\def\gl@month#1{%
+ \expandafter#1\ifcase\month\or Xxaneiro\or Ffebreiro\or
+ Mmarzo\or Aabril\or Mmaio\or Xxu\~{n}o\or Xxullo\or Aagosto\or
+ Ssetembro\or Ooutubro\or Nnovembro\or Ddecembro\fi}
+
+\def\gl@today#1{%
+ \ifcase\gl@datefmt
+  \the\day~de \gl@month#1%
+ \else
+  \gl@month#1~\the\day
+ \fi
+ \ de\ifnum\year>1999\gl@yearl\fi~\the\year}
+
+\def\dategalician{%
+ \def\today{\gl@today\@secondoftwo}%
+ \def\Today{\gl@today\@firstoftwo}}
+\newcount\gl@datefmt
+\def\galicianreverseddate{\gl@datefmt\@ne}
+\def\galiciandatedel{\def\gl@yearl{l}}
+\def\galiciandatede{\let\gl@yearl\@empty}
+\galiciandatede
+\def\selectgalician{%
+ \def\selectgalician{%
+  \def\selectgalician{%
+   \PackageWarning{galician}{Extra \string\selectgalician ignored}}%
+  \gl@select}}
+\@onlypreamble\selectgalician
+\def\gl@select{%
+ \let\gl@select\@undefined
+ \selectlanguage{galician}}
+
+\let\gl@shlist\@empty
+\def\extrasgalician{%
+ \textgalician
+ \mathgalician
+ \ifx\shorthandsgalician\@empty
+  \expandafter\galiciandeactivate\expandafter{\gl@shlist}%
+  \languageshorthands{none}%
+ \else
+  \shorthandsgalician
+ \fi}
+\def\noextrasgalician{%
+ \ifx\textgalician\@empty\else
+  \notextgalician
+ \fi
+ \ifx\mathgalician\@empty\else
+  \nomathgalician
+ \fi
+ \ifx\shorthandsgalician\@empty\else
+  \noshorthandsgalician
+ \fi
+ \csname es@restorelist\endcsname}
+
+\addto\textgalician{\gl@sdef\sptext{\protect\gl@sptext}}
+
+\def\gl@orddot{.}
+\ifes@latex
+ \def\gl@sptext#1{%
+  {\gl@orddot
+   \setbox\z@\hbox{8}\dimen@\ht\z@
+   \csname S@\f@size\endcsname
+   \edef\@tempa{\def\noexpand\@tempc{#1}%
+    \lowercase{\def\noexpand\@tempb{#1}}}\@tempa
+   \ifx\@tempb\@tempc
+    \fontsize\sf@size\z@
+    \selectfont
+    \advance\dimen@-1.15ex
+   \else
+    \fontsize\ssf@size\z@
+    \selectfont
+    \advance\dimen@-1.5ex
+   \fi
+   \math@fontsfalse\raise\dimen@\hbox{#1}}}
+\else
+ \let\sptextfont\rm
+ \def\gl@sptext#1{%
+  {\gl@orddot
+   \setbox\z@\hbox{8}\dimen@\ht\z@
+   \edef\@tempa{\def\noexpand\@tempc{#1}%
+    \lowercase{\def\noexpand\@tempb{#1}}}\@tempa
+   \ifx\@tempb\@tempc
+    \advance\dimen@-0.75ex
+    \raise\dimen@\hbox{$\scriptstyle\sptextfont#1$}%
+   \else
+    \advance\dimen@-0.8ex
+    \raise\dimen@\hbox{$\scriptscriptstyle\sptextfont#1$}%
+   \fi}}
+\fi
+\ifes@latex
+ \addto\textgalician{\gl@sdef\lsc{\protect\gl@lsc}}
+ \def\gl@lsc{\gl@xlsc\MakeUppercase\MakeLowercase}
+ \def\gl@xlsc#1#2#3{%
+  \leavevmode
+  \hbox{%
+   \scshape\selectfont
+   \expandafter\ifx\csname\f@encoding/\f@family/\f@series
+      /n/\f@size\expandafter\endcsname
+    \csname\curr@fontshape/\f@size\endcsname
+    \csname S@\f@size\endcsname
+    \fontsize\sf@size\z@\selectfont
+    \PackageWarning{galician}{Replacing `\curr@fontshape' by
+      \MessageBreak faked small caps}%
+    #1{#3}%
+   \else
+    #2{#3}%
+   \fi}}
+\fi
+\newif\ifgl@listquot
+
+\ifes@latex
+ \csname newtoks\endcsname\gl@quottoks
+ \csname newcount\endcsname\gl@quotdepth
+ \newenvironment{quoting}
+  {\leavevmode
+  \advance\gl@quotdepth\@ne
+  \csname lquot\romannumeral\gl@quotdepth\endcsname%
+  \ifnum\gl@quotdepth=\@ne
+   \gl@listquotfalse
+   \let\gl@quotpar\everypar
+   \let\everypar\gl@quottoks
+   \everypar\expandafter{\the\gl@quotpar}%
+   \gl@quotpar{\the\everypar
+    \ifgl@listquot\global\gl@listquotfalse\else\gl@quotcont\fi}%
+  \fi
+  \toks@\expandafter{\gl@quotcont}%
+  \edef\gl@quotcont{\the\toks@
+   \expandafter\noexpand
+   \csname rquot\romannumeral\gl@quotdepth\endcsname}}
+  {\csname rquot\romannumeral\gl@quotdepth\endcsname}
+ \def\lquoti{\guillemotleft{}}
+ \def\rquoti{\guillemotright{}}
+ \def\lquotii{``}
+ \def\rquotii{''}
+ \def\lquotiii{`}
+ \def\rquotiii{'}
+ \let\gl@quotcont\@empty
+ \addto\@marginparreset{\let\gl@quotcont\@empty}
+ \DeclareRobustCommand\gl@listquot{%
+  \csname rquot\romannumeral\gl@quotdepth\endcsname
+  \global\gl@listquottrue}
+\fi
+\addto\textgalician{\bbl@frenchspacing}
+\addto\notextgalician{\bbl@nonfrenchspacing}
+\addto\textgalician{%
+ \let\gl@save@dot\.%
+ \gl@sdef\.{\@ifnextchar.{\gl@dots}{\gl@save@dot}}}
+\def\gl@dots..{\leavevmode\hbox{...}\spacefactor\@M}
+\def\gl@sppercent{\unskip\textormath{$\m@th\,$}{\,}}
+\def\galicianplainpercent{\let\gl@sppercent\@empty}
+\addto\textgalician{%
+ \let\percentsign\%%
+ \gl@sdef\%{\gl@sppercent\percentsign{}}}
+\addto\mathgalician{\gl@sdef\dotlessi{\protect\gl@dotlessi}}
+\let\nomathgalician\relax
+
+\ifes@latex
+ \def\gl@texti{\i}
+ \addto\@uclclist{\dotlessi\gl@texti}
+\fi
+
+\ifes@latex
+ \def\gl@dotlessi{%
+  \ifmmode
+   {\ifnum\mathgroup=\m@ne
+     \imath
+    \else
+     \count@\glcapechar \glcapechar=\m@ne
+     \expandafter\expandafter\expandafter
+      \split@name\expandafter\string\the\textfont\mathgroup\@nil
+     \glcapechar=\count@
+     \@ifundefined{\f@encoding\string\i}%
+      {\edef\f@encoding{\string?}}{}%
+     \expandafter\count@\the\csname\f@encoding\string\i\endcsname
+     \advance\count@"7000
+     \mathchar\count@
+    \fi}%
+  \else
+   \i
+  \fi}
+\else
+ \def\gl@dotlessi{\textormath{\i}{\mathchar"7010}}
+\fi
+
+\def\accentedoperators{%
+ \def\gl@op@ac##1{\acute{\if i##1\dotlessi\else##1\fi}}}
+\def\unaccentedoperators{%
+ \def\gl@op@ac##1{##1}}
+\accentedoperators
+\def\spacedoperators{\let\gl@op@sp\,}
+\def\unspacedoperators{\let\gl@op@sp\@empty}
+\spacedoperators
+\addto\mathgalician{\gl@operators}
+
+\ifes@latex\else
+ \let\operator@font\rm
+\fi
+\def\gl@operators{%
+ \gl@sdef\bmod{\nonscript\mskip-\medmuskip\mkern5mu
+  \mathbin{\operator@font m\gl@op@ac od}\penalty900\mkern5mu
+  \nonscript\mskip-\medmuskip}%
+ \@ifundefined{@amsmath@err}%
+  {\gl@sdef\pmod##11{\allowbreak\mkern18mu
+    ({\operator@font m\gl@op@ac od}\,\,##11)}}%
+  {\gl@sdef\mod##1{\allowbreak\if@display\mkern18mu
+    \else\mkern12mu\fi{\operator@font m\gl@op@ac od}\,\,##1}%
+   \gl@sdef\pmod##1{\pod{{\operator@font m\gl@op@ac od}%
+    \mkern6mu##1}}}%
+ \def\gl@a##1 {%
+  \if^##1^% empty? continue
+   \bbl@afterelse
+   \gl@a
+  \else
+   \bbl@afterfi
+   {\if&##1% &? finish
+   \else
+    \bbl@afterfi
+    \begingroup
+    \let\,\@empty % ignore when def'ing name
+    \let\acute\@firstofone % id
+    \edef\gl@b{\expandafter\noexpand\csname##1\endcsname}%
+    \def\,{\noexpand\gl@op@sp}%
+    \def\acute{\noexpand\gl@op@ac}%
+    \edef\gl@a{\endgroup
+     \noexpand\gl@sdef\expandafter\noexpand\gl@b{%
+       \mathop{\noexpand\operator@font##1}\gl@c}}%
+    \gl@a % restores itself
+   \gl@a
+  \fi}%
+ \fi}%
+ \let\gl@b\galicianoperators
+ \addto\gl@b{ }%
+ \let\gl@c\@empty
+ \expandafter\gl@a\gl@b l\acute{i}m l\acute{i}m\,sup
+  l\acute{i}m\,inf m\acute{a}x \acute{i}nf m\acute{i}n & %
+ \def\gl@c{\nolimits}%
+ \expandafter\gl@a\gl@b sen tg arc\,sen arc\,cos arc\,tg & }
+\def\galicianoperators{cotg cosec senh tgh }
+\DeclareTextCompositeCommand{\'}{OT1}{i}{\@tabacckludge'{\i}}
+
+\def\gl@set@shorthand#1{%
+ \expandafter\edef\csname es@savecat\string#1\endcsname
+  {\the\catcode`#1}%
+ \initiate@active@char{#1}%
+ \catcode`#1=\csname es@savecat\string#1\endcsname\relax
+ \if.#1\else
+  \addto\gl@restorelist{\gl@restore{#1}}%
+  \addto\gl@select{\shorthandon{#1}}%
+  \addto\shorthandsgalician{\gl@activate{#1}}%
+  \addto\gl@shlist{#1}%
+ \fi}
+
+\def\gl@use@shorthand{%
+ \ifx\thepage\relax
+  \bbl@afterelse
+  \string
+ \else
+  \bbl@afterfi
+  {\ifx\protect\@unexpandable@protect
+   \bbl@afterelse
+   \noexpand
+  \else
+   \bbl@afterfi
+   \gl@use@sh
+  \fi}%
+ \fi}
+
+\def\gl@use@sh#1{%
+ \if@safe@actives
+  \bbl@afterelse
+  \string#1%
+ \else%
+  \bbl@afterfi
+  \textormath
+   {\csname active@char\string#1\endcsname}%
+   {\csname normal@char\string#1\endcsname}%
+ \fi}
+
+\gdef\gl@activate#1{%
+ \begingroup
+  \lccode`\~=`#1
+  \lowercase{%
+ \endgroup
+ \def~{\gl@use@shorthand~}}}
+
+\def\galiciandeactivate#1{%
+ \@tfor\@tempa:=#1\do{\expandafter\gl@spdeactivate\@tempa}}
+
+\def\gl@spdeactivate#1{%
+ \if.#1%
+  \mathcode`\.=\gl@period@code
+ \else
+  \begingroup
+   \lccode`\~=`#1
+   \lowercase{%
+  \endgroup
+  \expandafter\let\expandafter~%
+   \csname normal@char\string#1\endcsname}%
+  \catcode`#1=\csname es@savecat\string#1\endcsname\relax
+ \fi}
+\def\gl@restore#1{%
+ \shorthandon{#1}%
+ \begingroup
+  \lccode`\~=`#1
+  \lowercase{%
+ \endgroup
+ \bbl@deactivate{~}}}
+\def\gl@declare#1{%
+ \@ifundefined{es@savecat\expandafter\string\@firstoftwo#1}%
+  {\@gobble}%
+  {\declare@shorthand{galician}{#1}}}
+\def\gl@declarealt#1#2#3{%
+ \gl@declare{#1}{#3}%
+ \gl@declare{#2}{#3}}
+
+\ifes@latex\else
+ \def\@tabacckludge#1{\csname\string#1\endcsname}
+\fi
+
+\@ifundefined{add@accent}{\def\add@accent#1#2{\accent#1 #2}}{}
+\ifes@latex
+ \def\gl@accent#1#2#3{%
+  \expandafter\@text@composite
+  \csname OT1\string#1\endcsname#3\@empty\@text@composite
+  {\bbl@allowhyphens\add@accent{#2}{#3}\bbl@allowhyphens
+   \setbox\@tempboxa\hbox{#3%
+    \global\mathchardef\accent@spacefactor\spacefactor}%
+   \spacefactor\accent@spacefactor}}
+\else
+ \def\gl@accent#1#2#3{%
+  \bbl@allowhyphens\add@accent{#2}{#3}\bbl@allowhyphens
+  \spacefactor\sfcode`#3 }
+\fi
+
+\addto\shorthandsgalician{\languageshorthands{galician}}%
+\gl@ifoption{noshorthands}{}{\gl@set@shorthand{"}}
+\def\gl@umlaut#1{%
+ \bbl@allowhyphens\add@accent{127}#1\bbl@allowhyphens
+ \spacefactor\sfcode`#1 }
+
+\addto\shorthandsgalician{%
+ \babel@save\bbl@umlauta
+ \let\bbl@umlauta\gl@umlaut}
+\let\noshorthandsgalician\relax
+
+\ifes@latex
+\addto\shorthandsgalician{%
+ \expandafter\gl@sdef\csname OT1\string\~\endcsname{\gl@accent\~{126}}%
+ \expandafter\gl@sdef\csname OT1\string\'\endcsname{\gl@accent\'{19}}}
+\else
+\addto\shorthandsgalician{%
+ \gl@sdef\~{\gl@accent\~{126}}%
+ \gl@sdef\'#1{\if#1i\gl@accent\'{19}\i\else\gl@accent\'{19}{#1}\fi}}
+\fi
+
+\def\gl@sptext@r#1#2{\gl@sptext{#1#2}}
+\gl@declare{"a}{\sptext{a}}
+\gl@declare{"A}{\sptext{A}}
+\gl@declare{"o}{\sptext{o}}
+\gl@declare{"O}{\sptext{O}}
+\gl@declare{"e}{\protect\gl@sptext@r{e}}
+\gl@declare{"E}{\protect\gl@sptext@r{E}}
+\gl@declare{"u}{\"u}
+\gl@declare{"U}{\"U}
+\gl@declare{"i}{\"{\i}}
+\gl@declare{"I}{\"I}
+\gl@declare{"c}{\c{c}}
+\gl@declare{"C}{\c{C}}
+\gl@declare{"<}{\guillemotleft{}}
+\gl@declare{">}{\guillemotright{}}
+\def\gl@chf{\char\hyphenchar\font}
+\gl@declare{"-}{\bbl@allowhyphens\-\bbl@allowhyphens}
+\gl@declare{"=}{\bbl@allowhyphens\gl@chf\hskip\z@skip}
+\gl@declare{"~}
+ {\bbl@allowhyphens
+  \discretionary{\gl@chf}{\gl@chf}{\gl@chf}%
+  \bbl@allowhyphens}
+\gl@declare{"r}
+ {\bbl@allowhyphens
+  \discretionary{\gl@chf}{}{r}%
+  \bbl@allowhyphens}
+\gl@declare{"R}
+ {\bbl@allowhyphens
+  \discretionary{\gl@chf}{}{R}%
+  \bbl@allowhyphens}
+\gl@declare{"y}
+ {\@ifundefined{scalebox}%
+   {\ensuremath{\tau}}%
+   {\raisebox{1ex}{\scalebox{-1}{\resizebox{.45em}{1ex}{2}}}}}
+\gl@declare{""}{\hskip\z@skip}
+\gl@declare{"/}
+ {\setbox\z@\hbox{/}%
+  \dimen@\ht\z@
+  \advance\dimen@-1ex
+  \advance\dimen@\dp\z@
+  \dimen@.31\dimen@
+  \advance\dimen@-\dp\z@
+  \ifdim\dimen@>0pt
+   \kern.01em\lower\dimen@\box\z@\kern.03em
+  \else
+   \box\z@
+  \fi}
+\gl@declare{"?}
+ {\setbox\z@\hbox{?`}%
+  \leavevmode\raise\dp\z@\box\z@}
+\gl@declare{"!}
+ {\setbox\z@\hbox{!`}%
+  \leavevmode\raise\dp\z@\box\z@}
+
+\def\galiciandecimal#1{\def\gl@decimal{{#1}}}
+\def\decimalcomma{\galiciandecimal{,}}
+\def\decimalpoint{\galiciandecimal{.}}
+\decimalcomma
+\gl@ifoption{nodecimaldot}{}
+ {\AtBeginDocument{\bgroup\@fileswfalse}%
+  \gl@set@shorthand{.}%
+  \AtBeginDocument{\egroup}%
+  \@namedef{normal@char\string.}{%
+   \@ifnextchar\egroup
+    {\mathchar\gl@period@code\relax}%
+    {\csname active@char\string.\endcsname}}%
+  \declare@shorthand{system}{.}{\mathchar\gl@period@code\relax}%
+  \addto\shorthandsgalician{%
+   \mathchardef\gl@period@code\the\mathcode`\.%
+   \babel@savevariable{\mathcode`\.}%
+   \mathcode`\.="8000 %
+   \gl@activate{.}}%
+  \def\gl@a#1{\gl@declare{.#1}{\gl@decimal#1}}%
+  \gl@a1\gl@a2\gl@a3\gl@a4\gl@a5\gl@a6\gl@a7\gl@a8\gl@a9\gl@a0}
+
+\gl@ifoption{notilde}{}{\gl@set@shorthand{~}}
+\def\deactivatetilden{%
+ \expandafter\let\csname galician@sh@\string~@n@\endcsname\relax
+ \expandafter\let\csname galician@sh@\string~@N@\endcsname\relax}
+\gl@ifoption{tilden}
+ {\gl@declare{~n}{\~n}%
+  \gl@declare{~N}{\~N}}
+ {\let\deactivatetilden\relax}
+\gl@declarealt{~-}{"+}{%
+ \leavevmode
+ \bgroup
+ \let\@sptoken\gl@dashes % Changes \@ifnextchar behaviour
+ \@ifnextchar-%
+  {\gl@dashes}%
+  {\hbox{\gl@chf}\egroup}}
+\def\gl@dashes-{%
+ \@ifnextchar-%
+  {\bbl@allowhyphens\hbox{---}\bbl@allowhyphens\egroup\@gobble}%
+  {\bbl@allowhyphens\hbox{--}\bbl@allowhyphens\egroup}}
+
+\gl@ifoption{noquoting}%
+ {\let\gl@quoting\relax
+ \let\activatequoting\relax
+ \let\deactivatequoting\relax}
+ {\@ifundefined{XML@catcodes}%
+ {\gl@set@shorthand{<}%
+  \gl@set@shorthand{>}%
+  \declare@shorthand{system}{<}{\csname normal@char\string<\endcsname}%
+  \declare@shorthand{system}{>}{\csname normal@char\string>\endcsname}%
+  \addto\gl@restorelist{\gl@quoting}%
+  \addto\gl@select{\gl@quoting}%
+  \ifes@latex
+   \AtBeginDocument{%
+    \gl@quoting
+    \if@filesw
+     \immediate\write\@mainaux{\string\@nameuse{es@quoting}}%
+    \fi}%
+  \fi
+  \def\activatequoting{%
+   \shorthandon{<>}%
+   \let\gl@quoting\activatequoting}%
+  \def\deactivatequoting{%
+   \shorthandoff{<>}%
+   \let\gl@quoting\deactivatequoting}}{}}
+
+\gl@declarealt{<<}{"`}{\begin{quoting}}
+\gl@declarealt{>>}{"'}{\end{quoting}}
+\begingroup
+\catcode`\'=12
+\gdef\gl@activeacute{%
+ \gl@set@shorthand{'}%
+ \def\gl@a##1{\gl@declare{'##1}{\@tabacckludge'##1}}%
+ \gl@a a\gl@a e\gl@a i\gl@a o\gl@a u%
+ \gl@a A\gl@a E\gl@a I\gl@a O\gl@a U%
+ \gl@declare{'n}{\~n}%
+ \gl@declare{'N}{\~N}%
+ \gl@declare{''}{''}%
+ \let\gl@pr@m@s\bbl@pr@m@s
+ \def\bbl@pr@m@s{%
+  \ifx'\@let@token
+   \bbl@afterelse
+   \pr@@@s
+  \else
+   \bbl@afterfi
+   \gl@pr@m@s
+  \fi}%
+ \let\gl@activeacute\relax}
+\endgroup
+
+\ifes@latex
+ \@ifpackagewith{babel}{activeacute}{\gl@activeacute}{}
+\else
+ \gl@activeacute
+\fi
+\def\gl@enumerate#1#2#3#4{\def\gl@enum{{#1}{#2}{#3}{#4}}}
+\def\gl@itemize#1#2#3#4{\def\gl@item{{#1}{#2}{#3}{#4}}}
+
+\ifes@latex
+\gl@enumerate{1.}{a)}{1)}{a$'$}
+\def\galiciandashitems{\gl@itemize{---}{---}{---}{---}}
+\def\galiciansymbitems{%
+ \gl@itemize
+  {\leavevmode\hbox to 1.2ex
+   {\hss\vrule height .9ex width .7ex depth -.2ex\hss}}%
+  {\textbullet}%
+  {$\m@th\circ$}%
+  {$\m@th\diamond$}}
+\def\galiciansignitems{%
+ \gl@itemize{\textbullet}%
+  {$\m@th\circ$}%
+  {$\m@th\diamond$}%
+  {$\m@th\triangleright$}}
+\galiciansymbitems
+\def\gl@enumdef#1#2#3\@@{%
+ \if#21%
+  \@namedef{theenum#1}{\arabic{enum#1}}%
+ \else\if#2a%
+  \@namedef{theenum#1}{\emph{\alph{enum#1}}}%
+ \else\if#2A%
+  \@namedef{theenum#1}{\Alph{enum#1}}%
+ \else\if#2i%
+  \@namedef{theenum#1}{\roman{enum#1}}%
+ \else\if#2I%
+  \@namedef{theenum#1}{\Roman{enum#1}}%
+ \else\if#2o%
+  \@namedef{theenum#1}{\arabic{enum#1}\sptext{o}}%
+ \fi\fi\fi\fi\fi\fi
+ \toks@\expandafter{\csname theenum#1\endcsname}%
+ \expandafter\edef\csname labelenum#1\endcsname
+   {\noexpand\gl@listquot\the\toks@#3}}
+\def\gl@guillemot#1#2{%
+ \ifmmode#1%
+ \else
+  \save@sf@q{\penalty\@M
+  \leavevmode\hbox{\usefont{U}{lasy}{m}{n}%
+   \char#2 \kern-0.19em\char#2 }}%
+ \fi}
+\def\layoutgalician{%
+ \let\layoutgalician\@empty
+ \DeclareTextCommand{\guillemotleft}{OT1}{\gl@guillemot\ll{40}}%
+ \DeclareTextCommand{\guillemotright}{OT1}{\gl@guillemot\gg{41}}%
+ \def\@fnsymbol##1%
+  {\ifcase##1\or*\or**\or***\or****\or
+   *****\or******\else\@ctrerr\fi}%
+ \def\@alph##1%
+  {\ifcase##1\or a\or b\or c\or d\or e\or f\or g\or h\or i\or j\or
+   k\or l\or m\or n\or \~n\or o\or p\or q\or r\or s\or t\or u\or v\or
+   w\or x\or y\or z\else\@ctrerr\fi}%
+ \def\@Alph##1%
+  {\ifcase##1\or A\or B\or C\or D\or E\or F\or G\or H\or I\or J\or
+   K\or L\or M\or N\or \~N\or O\or P\or Q\or R\or S\or T\or U\or V\or
+   W\or X\or Y\or Z\else\@ctrerr\fi}}
+
+\gl@optlayout{noenumerate}{%
+ \def\gl@enumerate#1#2#3#4{%
+  \gl@enumdef{i}#1\@empty\@empty\@@
+  \gl@enumdef{ii}#2\@empty\@empty\@@
+  \gl@enumdef{iii}#3\@empty\@empty\@@
+  \gl@enumdef{iv}#4\@empty\@empty\@@}%
+  \def\p@enumii{\theenumi}%
+  \def\p@enumiii{\p@enumii\theenumii}%
+  \def\p@enumiv{\p@enumiii\theenumiii}%
+  \expandafter\gl@enumerate\gl@enum}
+\gl@optlayout{noitemize}{%
+ \def\gl@itemize#1#2#3#4{%
+  \def\labelitemi{\gl@listquot#1}%
+  \def\labelitemii{\gl@listquot#2}%
+  \def\labelitemiii{\gl@listquot#3}%
+  \def\labelitemiv{\gl@listquot#4}}%
+  \expandafter\gl@itemize\gl@item}
+\let\glromanindex\@secondoftwo
+\gl@ifoption{ucroman}
+ {\def\gl@romandef{%
+   \def\glromanindex##1##2{##1{\uppercase{##2}}}%
+   \def\@roman{\@Roman}}}
+ {\def\gl@romandef{%
+   \def\glromanindex##1##2{##1{\protect\gl@roman{##2}}}%
+   \def\@roman##1{\gl@roman{\number##1}}%
+   \def\gl@roman##1{\gl@scroman{\romannumeral##1}}%
+   \DeclareRobustCommand\gl@scroman{\gl@xlsc\uppercase\@firstofone}}}
+\gl@optlayout{lcroman}{\gl@romandef}
+\newcommand\galicianlcroman{\def\@roman##1{\romannumeral##1}}
+\newcommand\galicianucroman{\def\@roman{\@Roman}}
+\newcommand\galicianscroman{\def\@roman##1{\gl@roman{\romannumeral##1}}}
+\gl@optlayout{noindentfirst}{%
+ \let\@afterindentfalse\@afterindenttrue
+ \@afterindenttrue}
+\gl@optlayout{nosectiondot}{%
+ \def\@seccntformat#1{\csname the#1\endcsname.\quad}%
+ \def\numberline#1{\hb@xt@\@tempdima{#1\if&#1&\else.\fi\hfil}}}
+\gl@ifoption{nolayout}{\let\layoutgalician\relax}{}
+\gl@ifoption{sloppy}{\let\textgalician\relax\let\mathgalician\relax}{}
+\gl@ifoption{delayed}{}{\def\gl@layoutgalician{\layoutgalician}}
+\gl@ifoption{preindex}{\AtEndOfPackage{\RequirePackage{romanidx}}}{}
+\AtEndOfPackage{%
+\let\gl@activeacute\@undefined
+\def\bbl@tempa{galician}%
+\ifx\bbl@main@language\bbl@tempa
+ \@nameuse{es@layoutgalician}%
+ \addto\gl@select{%
+  \@ifstar{\PackageError{galician}%
+   {Old syntax--use es-nolayout}%
+   {If you don't want changes in layout\MessageBreak
+   use the es-nolayout package option}}%
+   {}}%
+ \AtBeginDocument{\layoutgalician}%
+\fi
+\selectgalician}
+\fi
+\gl@savedcatcodes
+\providehyphenmins{\CurrentOption}{\tw@\tw@}
+\ifes@latex\else
+ \gl@select
+\fi
+\ldf@finish{galician}
+\csname activatequoting\endcsname
+\endinput
+%%
+%% End of file `galician.ldf'.
